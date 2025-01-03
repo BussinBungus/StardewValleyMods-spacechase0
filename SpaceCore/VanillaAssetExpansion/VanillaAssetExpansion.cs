@@ -350,6 +350,13 @@ namespace SpaceCore.VanillaAssetExpansion
                     if (++texOverride.currFrameTick >= texOverride.animation.Frames[texOverride.currFrame].Duration)
                     {
                         texOverride.currFrameTick = 0;
+
+                        double defaultAnimationChance = 1.0; // could make this a config option, but it may be clearer to always keep it 1.0
+                        if (texOverride.currFrame == 0 && (texOverride.ChancePerTick ?? defaultAnimationChance) <= Game1.random.NextDouble())
+                        {
+                            continue;
+                        }
+
                         if (++texOverride.currFrame >= texOverride.animation.Frames.Length)
                         {
                             texOverride.currFrame = 0;

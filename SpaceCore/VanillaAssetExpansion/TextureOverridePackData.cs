@@ -22,6 +22,8 @@ namespace SpaceCore.VanillaAssetExpansion
 
         public Point? SourceSizeOverride { get; set; } = null;
 
+        public double? ChancePerTick { get; set; } = null;
+
         internal Texture2D sourceTex;
         internal TextureAnimation animation;
         internal int currFrame = 0;
